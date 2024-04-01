@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sofka.Nomina.Example", "Sofka.Nomina.Example\Sofka.Nomina.Example.csproj", "{0A7240DA-658E-43FC-89AA-8CFBDC81375F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A7240DA-658E-43FC-89AA-8CFBDC81375F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7240DA-658E-43FC-89AA-8CFBDC81375F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7240DA-658E-43FC-89AA-8CFBDC81375F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7240DA-658E-43FC-89AA-8CFBDC81375F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BB97B76-AA9E-4E08-8E4E-2739C1798A0D}
+	EndGlobalSection
+EndGlobal
