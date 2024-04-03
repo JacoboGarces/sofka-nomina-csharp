@@ -1,6 +1,6 @@
 ﻿namespace Sofka.Nomina.Example.Models.Entities
 {
-  public abstract class Employee
+  public abstract class EmployeeEntity
   {
     public string? Name { get; set; }
     public string? Email { get; set; }
@@ -11,12 +11,12 @@
     protected readonly int DAYS_TO_START_HOURS_WORKED = 1;
     protected readonly int DAILY_HOURS = 8;
 
-    protected Employee()
+    protected EmployeeEntity()
     {
 
     }
 
-    protected Employee(string? name, string? email, float basicSalary, DateOnly entryDate)
+    protected EmployeeEntity(string? name, string? email, float basicSalary, DateOnly entryDate)
     {
       Name = name;
       Email = email;

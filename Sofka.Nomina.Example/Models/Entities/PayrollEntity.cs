@@ -1,16 +1,16 @@
 ﻿namespace Sofka.Nomina.Example.Models.Entities
 {
-  public class Payroll
+  public class PayrollEntity
   {
-    public List<Employee>? Employees { get; set; }
+    public List<EmployeeEntity>? Employees { get; set; }
     public float Total { get; set; }
     public float TotalBonus { get; set; }
 
-    public Payroll()
+    public PayrollEntity()
     {
     }
 
-    public Payroll(List<Employee>? employees, float total, float totalBonus)
+    public PayrollEntity(List<EmployeeEntity>? employees, float total, float totalBonus)
     {
       Employees = employees;
       Total = total;

@@ -6,12 +6,12 @@ namespace Sofka.Nomina.Example.Models.Factories
 {
   public class EmployeeFactory : IEmployeeFactory
   {
-    public Employee Create(EmployeeDTO payload)
+    public EmployeeEntity Create(EmployeeDTO payload)
     {
-      var employeeChildren = new Dictionary<EmployeeType, Employee>
+      var employeeChildren = new Dictionary<EmployeeType, EmployeeEntity>
       {
-        { EmployeeType.INTERNAL, new Internal(payload.Name, payload.Email, payload.BasicSalary, payload.EntryDate) },
-        { EmployeeType.EXTERNAL, new External(payload.Name, payload.Email, payload.BasicSalary, payload.EntryDate) }
+        { EmployeeType.INTERNAL, new InternalEntity(payload.Name, payload.Email, payload.BasicSalary, payload.EntryDate) },
+        { EmployeeType.EXTERNAL, new ExternalEntity(payload.Name, payload.Email, payload.BasicSalary, payload.EntryDate) }
       };
 
       var employee = employeeChildren.GetValueOrDefault(payload.Type);

@@ -1,12 +1,12 @@
 ﻿namespace Sofka.Nomina.Example.Models.Entities
 {
-  public class External : Employee
+  public class ExternalEntity : EmployeeEntity
   {
-    public External()
+    public ExternalEntity()
     {
     }
 
-    public External(string? name, string? email, float basicSalary, DateOnly entryDate) : base(name, email, basicSalary, entryDate)
+    public ExternalEntity(string? name, string? email, float basicSalary, DateOnly entryDate) : base(name, email, basicSalary, entryDate)
     {
     }
 

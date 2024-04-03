@@ -1,12 +1,12 @@
 ﻿namespace Sofka.Nomina.Example.Models.Entities
 {
-  public class Internal : Employee
+  public class InternalEntity : EmployeeEntity
   {
-    public Internal()
+    public InternalEntity()
     {
     }
 
-    public Internal(string? name, string? email, float basicSalary, DateOnly entryDate) : base(name, email, basicSalary, entryDate)
+    public InternalEntity(string? name, string? email, float basicSalary, DateOnly entryDate) : base(name, email, basicSalary, entryDate)
     {
     }
 

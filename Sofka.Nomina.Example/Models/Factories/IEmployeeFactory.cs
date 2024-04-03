@@ -5,6 +5,6 @@ namespace Sofka.Nomina.Example.Models.Factories
 {
   public interface IEmployeeFactory
   {
-    Employee Create(EmployeeDTO payload);
+    EmployeeEntity Create(EmployeeDTO payload);
   }
 }

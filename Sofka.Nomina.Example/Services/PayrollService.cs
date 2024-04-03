@@ -1,26 +1,48 @@
-﻿using Sofka.Nomina.Example.Models.DTOS;
+﻿using Sofka.Nomina.Example.Database.Interfaces;
+using Sofka.Nomina.Example.Models.DTOS;
 using Sofka.Nomina.Example.Models.Entities;
 using Sofka.Nomina.Example.Models.Factories;
+using Sofka.Nomina.Example.Models.Persistence;
 
 namespace Sofka.Nomina.Example.Services
 {
   public class PayrollService : IPayrollService
   {
     private readonly IEmployeeFactory _employeeFactory;
+    private readonly IDatabase _database;
 
-    public PayrollService(IEmployeeFactory employeeFactory)
+    public PayrollService(IEmployeeFactory employeeFactory, IDatabase database)
     {
       _employeeFactory = employeeFactory;
+      _database = database;
     }
 
-    public Employee CalculateSalary(EmployeeDTO payload)
+    public async Task<Employee> CalculateSalary(EmployeeDTO payload)
     {
-      var employee = _employeeFactory.Create(payload);
-      employee.CalcuteSalary();
+      var employeeEntity = _employeeFactory.Create(payload);
+      employeeEntity.CalcuteSalary();
+
+      var employee = new Employee()
+      {
+        Name = employeeEntity.Name,
+        Email = employeeEntity.Email,
+        BasicSalary = employeeEntity.BasicSalary,
+        TotalSalary = employeeEntity.TotalSalary,
+        Bonus = employeeEntity.Bonus,
+        EntryDate = employeeEntity.EntryDate
+      };
+
+      await _database.Employee.AddAsync(employee);
+
+      if (!await _database.SaveAsync())
+      {
+        return null;
+      }
+
       return employee;
     }
 
-    public Payroll CalculatePayroll(List<EmployeeDTO> payload)
+    public PayrollEntity CalculatePayroll(List<EmployeeDTO> payload)
     {
       var employees = payload.Select(item => _employeeFactory.Create(item)).ToList();
 
@@ -33,7 +55,7 @@ namespace Sofka.Nomina.Example.Services
         totalBonus += employee.Bonus;
       }
 
-      return new Payroll(employees, totalSalary, totalBonus);
+      return new PayrollEntity(employees, totalSalary, totalBonus);
     }
   }
 }

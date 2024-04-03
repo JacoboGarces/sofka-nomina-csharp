@@ -28,7 +28,14 @@ namespace Sofka.Nomina.Example.Controllers
         return StatusCode(StatusCodes.Status400BadRequest, validate.Errors);
       }
 
-      return StatusCode(StatusCodes.Status200OK, _payrollService.CalculateSalary(payload));
+      var result = await _payrollService.CalculateSalary(payload);
+
+      if (result == null)
+      {
+        return StatusCode(StatusCodes.Status400BadRequest, new { Error = "Employee cannot be created" });
+      }
+
+      return StatusCode(StatusCodes.Status200OK, result);
     }
 
     [HttpPost("CalculatePayroll")]
